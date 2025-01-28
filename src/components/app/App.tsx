@@ -3,6 +3,7 @@ import './App.css'
 import AppInfo from '../app-info/app-info.tsx';
 import SearchPanel from '../search-panel/search-panel.tsx';
 import AppFilter from '../app-filter/app-filter.tsx';
+import MovieList from '../movie-list/movie-list.tsx';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <SearchPanel />
         <AppFilter />
       </div>
+      <MovieList />
       </div>
     </div>
   );
