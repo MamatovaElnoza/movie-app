@@ -4,6 +4,7 @@ import AppInfo from '../app-info/app-info.tsx';
 import SearchPanel from '../search-panel/search-panel.tsx';
 import AppFilter from '../app-filter/app-filter.tsx';
 import MovieList from '../movie-list/movie-list.tsx';
+import MoviesAddForm from '../movies-add-form/movies-add-form.tsx';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <AppFilter />
       </div>
       <MovieList />
+      <MoviesAddForm />
       </div>
     </div>
   );
