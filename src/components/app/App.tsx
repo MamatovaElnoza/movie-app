@@ -1,15 +1,18 @@
 import React from 'react';
-import AppInfo from '../app-info/app-info';
-import SearchPanel from '../search-panel/search-panel';
-import AppFilter from '../app-filter/app-filter';
+import './App.css'
+import AppInfo from '../app-info/app-info.tsx';
+import SearchPanel from '../search-panel/search-panel.tsx';
+import AppFilter from '../app-filter/app-filter.tsx';
 
 function App() {
   return (
-    <div>
+    <div className = "app font-monospace">
+      <div className = "content">
       <AppInfo />
-      <div>
+      <div className= "search-panel">
         <SearchPanel />
         <AppFilter />
+      </div>
       </div>
     </div>
   );
