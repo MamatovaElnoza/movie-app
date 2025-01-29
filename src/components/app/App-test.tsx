@@ -34,7 +34,8 @@ class User extends Component<UserProps, UserState> {
             counter: 0,
         })
     }
-    changeHandler = (e) =>{
+    changeHandler = (e, name) =>{
+        console.log(name);
         this.setState({
             age: e.target.value,
         })
@@ -42,6 +43,8 @@ class User extends Component<UserProps, UserState> {
 
     render() {
         const { firstname, lastname, link } = this.props;
+        const {age, counter} = this.state
+        
         return (
             <div className="w-50 mx-auto">
                 <div className="border p-3 mt-5">
@@ -55,7 +58,7 @@ class User extends Component<UserProps, UserState> {
                     <p>{this.state.counter}</p>
                     <form>
                         <span>Yoshingiz</span>
-                        <input className="form-control" type="text" onChange={this.changeHandler} />
+                        <input className="form-control" type="text" onChange={e => this.changeHandler(e, 'sammi')} />
                     </form>
                 </div>
             </div>
