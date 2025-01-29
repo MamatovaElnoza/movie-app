@@ -6,7 +6,7 @@ const MovieList = ({data}) => {
   return (
     <ul className="movie-list">
       {data.map((item: { name: string; views: number; favourite: boolean }) =>(
-        <MovieListItem name={item.name} views={item.views} favourite={item.favourite}/>
+        <MovieListItem {...item}/>
       ))}
     </ul>
   )
