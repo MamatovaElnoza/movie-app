@@ -1,7 +1,7 @@
 import React from 'react'
 import './movie-list-item.css'
 
-const MovieListItem = (props: { name: string; views: number; favourite: boolean }) => {
+const MovieListItem = (props: { name: string; views: number; favourite: boolean; key: number }) => {
   return (
     <li className={`list-group-item d-flex justify-content-between ${props.favourite && 'favourite'}`}>
         <span className="list-group-item-label">{props.name}</span>

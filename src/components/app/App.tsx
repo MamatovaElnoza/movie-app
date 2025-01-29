@@ -8,11 +8,11 @@ import MoviesAddForm from '../movies-add-form/movies-add-form.tsx';
 
 function App() {
 
-  const data: { name: string; views: number; favourite: boolean }[] = [
-    { name: 'Wednesday', views: 998, favourite: false },
-    { name: 'Leon', views: 567, favourite: false },
-    { name: 'Home Alone', views: 738, favourite: true },
-    { name: 'The fault in our stars', views: 893, favourite: false },
+  const data: { name: string; views: number; favourite: boolean, id: number}[] = [
+    { name: 'Wednesday', views: 998, favourite: false, id: 1 },
+    { name: 'Leon', views: 567, favourite: false, id: 2 },
+    { name: 'Home Alone', views: 738, favourite: true, id: 3 },
+    { name: 'The fault in our stars', views: 893, favourite: false, id: 4 },
   ]
 
   return (
