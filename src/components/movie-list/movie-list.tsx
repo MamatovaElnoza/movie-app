@@ -5,7 +5,7 @@ import MovieListItem from '../movie-list-item/movie-list-item.tsx'
 const MovieList = ({data}) => {
   return (
     <div className="movie-list">
-      {data.map(item =>(
+      {data.map((item: { name: string; views: number }) =>(
         <MovieListItem name={item.name} views={item.views}/>
       ))}
     </div>
