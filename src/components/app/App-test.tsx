@@ -29,9 +29,9 @@ class User extends Component<UserProps, UserState> {
         }))
     }
     clickRestart = () => {
-        this.setState(prevState => ({
-            counter: prevState.counter =0,
-        }))
+        this.setState({
+            counter: 0,
+        })
     }
 
     render() {
