@@ -45,7 +45,14 @@
 	line-height: 35px;
 	font-size: 16px;
 	color: #ffd700;
+	transition: 0.3s all;
+	transform: translateX(30px);
+	opacity: 0;
+}
 
+.list-group-item.like .fa-star {
+	opacity: 1;
+	transform: translateX(0px);
 }
 
 .list-group-item.favourite .list-group-item-label,
