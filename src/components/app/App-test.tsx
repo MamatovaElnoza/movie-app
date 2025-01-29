@@ -18,9 +18,19 @@ class User extends Component<UserProps, UserState> {
         }
     }
 
-    clickHandler = () => {
+    clickIncrement = () => {
         this.setState(prevState => ({
             counter: prevState.counter +1,
+        }))
+    }
+    clickDecrement = () => {
+        this.setState(prevState => ({
+            counter: prevState.counter -1,
+        }))
+    }
+    clickRestart = () => {
+        this.setState(prevState => ({
+            counter: prevState.counter =0,
         }))
     }
 
@@ -32,7 +42,9 @@ class User extends Component<UserProps, UserState> {
                     <h3>mening ismim - {firstname}, sharifim - {lastname}</h3>
                     <a href={link}> youtube kanalim</a>
                     <div className="pt-3">
-                        <button onClick={this.clickHandler} className="btn btn-success">click</button>
+                        <button onClick={this.clickIncrement} className="btn btn-success">increment</button>
+                        <button onClick={this.clickDecrement} className="btn btn-danger mx-2">decrement</button>
+                        <button onClick={this.clickRestart} className="btn btn-info">restart</button>
                     </div>
                     <p>{this.state.counter}</p>
                 </div>
