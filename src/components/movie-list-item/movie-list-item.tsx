@@ -1,9 +1,9 @@
 import React from 'react'
 import './movie-list-item.css'
 
-const MovieListItem = (props: { name: string; views: number }) => {
+const MovieListItem = (props: { name: string; views: number; favourite: boolean }) => {
   return (
-    <li className="list-group-item d-flex justify-content-between">
+    <li className={`list-group-item d-flex justify-content-between ${props.favourite && 'favourite'}`}>
         <span className="list-group-item-label">{props.name}</span>
         <input type="number" className="list-group-item-input" defaultValue={props.views} />
         <div className="d-flex justify-content-center align-items-center">

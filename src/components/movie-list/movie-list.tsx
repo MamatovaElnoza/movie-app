@@ -4,11 +4,11 @@ import MovieListItem from '../movie-list-item/movie-list-item.tsx'
 
 const MovieList = ({data}) => {
   return (
-    <div className="movie-list">
-      {data.map((item: { name: string; views: number }) =>(
-        <MovieListItem name={item.name} views={item.views}/>
+    <ul className="movie-list">
+      {data.map((item: { name: string; views: number; favourite: boolean }) =>(
+        <MovieListItem name={item.name} views={item.views} favourite={item.favourite}/>
       ))}
-    </div>
+    </ul>
   )
 }
 
