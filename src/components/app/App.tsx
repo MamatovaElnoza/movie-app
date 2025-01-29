@@ -8,7 +8,7 @@ import MoviesAddForm from '../movies-add-form/movies-add-form.tsx';
 
 function App() {
 
-  const data: { name: string; views: number; favourite: boolean, id: number}[] = [
+  const data: { name: string; views: number; favourite: boolean, id: any}[] = [
     { name: 'Wednesday', views: 998, favourite: false, id: 1 },
     { name: 'Leon', views: 567, favourite: false, id: 2 },
     { name: 'Home Alone', views: 738, favourite: true, id: 3 },

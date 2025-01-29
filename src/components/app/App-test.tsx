@@ -35,7 +35,6 @@ class User extends Component<UserProps, UserState> {
         })
     }
     changeHandler = (e, name) =>{
-        console.log(name);
         this.setState({
             age: e.target.value,
         })
@@ -48,14 +47,14 @@ class User extends Component<UserProps, UserState> {
         return (
             <div className="w-50 mx-auto">
                 <div className="border p-3 mt-5">
-                    <h3>mening ismim - {firstname}, sharifim - {lastname}, yoshim - {this.state.age}</h3>
+                    <h3>mening ismim - {firstname}, sharifim - {lastname}, yoshim - {age}</h3>
                     <a href={link}> youtube kanalim</a>
                     <div className="pt-3">
                         <button onClick={this.clickIncrement} className="btn btn-success">increment</button>
                         <button onClick={this.clickDecrement} className="btn btn-danger mx-2">decrement</button>
                         <button onClick={this.clickRestart} className="btn btn-info">restart</button>
                     </div>
-                    <p>{this.state.counter}</p>
+                    <p>{counter}</p>
                     <form>
                         <span>Yoshingiz</span>
                         <input className="form-control" type="text" onChange={e => this.changeHandler(e, 'sammi')} />
