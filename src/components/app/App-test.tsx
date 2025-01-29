@@ -15,6 +15,7 @@ class User extends Component<UserProps, UserState> {
         super(props)
         this.state = {
             counter: 10,
+            text : 'text'
         }
     }
 
@@ -41,6 +42,7 @@ class User extends Component<UserProps, UserState> {
                 <div className="border p-3 mt-5">
                     <h3>mening ismim - {firstname}, sharifim - {lastname}</h3>
                     <a href={link}> youtube kanalim</a>
+                    <p>{this.state.text}</p>
                     <div className="pt-3">
                         <button onClick={this.clickIncrement} className="btn btn-success">increment</button>
                         <button onClick={this.clickDecrement} className="btn btn-danger mx-2">decrement</button>
