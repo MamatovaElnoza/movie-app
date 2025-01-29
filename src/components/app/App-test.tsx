@@ -8,6 +8,7 @@ interface UserProps {
 
 interface UserState {
     counter: number;
+    age: string;
 }
 
 class User extends Component<UserProps, UserState> {
