@@ -6,13 +6,14 @@ interface MovieProps {
   views: number;
 }
 interface MovieState {
-  favourite: boolean
+  favourite: boolean;
+  like: boolean;
 }
 
 class MovieListItem extends Component<MovieProps, MovieState>{
   constructor(props: any){
     super(props)
-    this.state = {favourite: false}
+    this.state = {favourite: false, like: false,}
   }
 
   onFavourite = () => {
@@ -20,13 +21,19 @@ class MovieListItem extends Component<MovieProps, MovieState>{
       favourite: !favourite
     }))
   }
+
+  onLike = () => {
+    this.setState(({like}) => ({
+      like: !like
+    }))
+  }
   
   render() {
     const { name, views} = this.props;
-    const {favourite} = this.state
+    const {favourite, like} = this.state
     return (
-      <li className={`list-group-item d-flex justify-content-between ${favourite && 'favourite'}`}>
-          <span className="list-group-item-label">{name}</span>
+      <li className={`list-group-item d-flex justify-content-between ${favourite && 'favourite'} ${like && 'like'}`}>
+          <span onClick={this.onLike} className="list-group-item-label">{name}</span>
           <input type="number" className="list-group-item-input" defaultValue={views} />
           <div className="d-flex justify-content-center align-items-center">
               <button className="btn-cookie btn-sm" type="button" onClick={this.onFavourite}>
