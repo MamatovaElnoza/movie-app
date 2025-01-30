@@ -1,7 +1,20 @@
 import React, { Component } from 'react'
 import './movies-add-form.css'
 
-class MoviesAddForm extends Component {
+interface MoviesAddProps {
+  name: string;
+  views: number;
+}
+
+class MoviesAddForm extends Component<MoviesAddProps> {
+  constructor(props: any){
+    super(props)
+    this.state ={
+      name: '',
+      views: '',
+    }
+  }
+
   render() {
     return (
       <div className="movies-add-form">
