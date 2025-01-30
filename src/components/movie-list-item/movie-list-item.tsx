@@ -4,13 +4,20 @@ import './movie-list-item.css'
 interface MovieProps {
   name: string;
   views: number;
-  favourite: boolean;
+}
+interface MovieState {
+  favourite: boolean
 }
 
-class MovieListItem extends Component<MovieProps>{
+class MovieListItem extends Component<MovieProps, MovieState>{
+  constructor(props: any){
+    super(props)
+    this.state = {favourite: false}
+  }
   
   render() {
-    const { name, views, favourite} = this.props;
+    const { name, views} = this.props;
+    const {favourite} = this.state
     return (
       <li className={`list-group-item d-flex justify-content-between ${favourite && 'favourite'}`}>
           <span className="list-group-item-label">{name}</span>
