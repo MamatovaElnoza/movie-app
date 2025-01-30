@@ -16,8 +16,8 @@ class MovieListItem extends Component<MovieProps, MovieState>{
   }
 
   onFavourite = () => {
-    this.setState(prevState =>({
-      favourite: !prevState.favourite
+    this.setState(({favourite}) =>({
+      favourite: !favourite
     }))
   }
   
