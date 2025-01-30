@@ -14,6 +14,12 @@ class MovieListItem extends Component<MovieProps, MovieState>{
     super(props)
     this.state = {favourite: false}
   }
+
+  onFavourite = () => {
+    this.setState(prevState =>({
+      favourite: !prevState.favourite
+    }))
+  }
   
   render() {
     const { name, views} = this.props;
@@ -23,7 +29,7 @@ class MovieListItem extends Component<MovieProps, MovieState>{
           <span className="list-group-item-label">{name}</span>
           <input type="number" className="list-group-item-input" defaultValue={views} />
           <div className="d-flex justify-content-center align-items-center">
-              <button className="btn-cookie btn-sm" type="button">
+              <button className="btn-cookie btn-sm" type="button" onClick={this.onFavourite}>
                   <i className="fas fa-cookie"></i>
               </button>
               <button className="btn-sm btn-trash" type="button">
