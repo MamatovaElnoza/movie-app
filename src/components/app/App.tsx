@@ -24,7 +24,7 @@ function App() {
           <AppFilter />
         </div>
         <MovieList data={data} />
-        <MoviesAddForm />
+        <MoviesAddForm name='' views={0} />
       </div>
     </div>
   );

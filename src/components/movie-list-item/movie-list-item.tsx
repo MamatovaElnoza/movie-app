@@ -4,6 +4,9 @@ import './movie-list-item.css'
 interface MovieProps {
   name: string;
   views: number;
+  favourite: boolean;
+  id: any;
+  onDelete: any
 }
 interface MovieState {
   favourite: boolean;
@@ -29,7 +32,7 @@ class MovieListItem extends Component<MovieProps, MovieState>{
   }
   
   render() {
-    const { name, views} = this.props;
+    const { name, views, onDelete} = this.props;
     const {favourite, like} = this.state
     return (
       <li className={`list-group-item d-flex justify-content-between ${favourite && 'favourite'} ${like && 'like'}`}>
@@ -39,7 +42,7 @@ class MovieListItem extends Component<MovieProps, MovieState>{
               <button className="btn-cookie btn-sm" type="button" onClick={this.onFavourite}>
                   <i className="fas fa-cookie"></i>
               </button>
-              <button className="btn-sm btn-trash" type="button">
+              <button className="btn-sm btn-trash" type="button" onClick={onDelete}>
                   <i className="fas fa-trash"></i>
               </button>
               <i className="fas fa-star"></i>
