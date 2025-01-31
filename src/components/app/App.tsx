@@ -20,7 +20,13 @@ class App extends Component {
   }
 
   onDelete = id => {
-    console.log(id);
+    this.setState(({data}) => {
+      const index = data.findIndex(c => c.id === id)
+      data.splice(index, 1)
+      return{
+        data,
+      }
+    })
     
   }
 
