@@ -15,6 +15,11 @@ function App() {
     { name: 'The fault in our stars', views: 893, favourite: false, id: 4 },
   ]
 
+  const onDelete = id => {
+    console.log(id);
+    
+  }
+
   return (
     <div className="app font-monospace">
       <div className="content">
@@ -23,7 +28,7 @@ function App() {
           <SearchPanel />
           <AppFilter />
         </div>
-        <MovieList data={data} />
+        <MovieList data={data} onDelete={onDelete}/>
         <MoviesAddForm name='' views={0} />
       </div>
     </div>
