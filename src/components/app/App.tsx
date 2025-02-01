@@ -30,6 +30,11 @@ class App extends Component<{}, AppState> {
 
   onDelete = (id: number) => {
     this.setState(({ data }) => ({ data: data.filter(c => c.id !== id), }))
+  }
+
+  addForm = (e, item) => {
+    e.preventDefault()
+    console.log(item);
 
   }
 
@@ -44,7 +49,7 @@ class App extends Component<{}, AppState> {
             <AppFilter />
           </div>
           <MovieList data={data} onDelete={this.onDelete} />
-          <MoviesAddForm name='' views={0} />
+          <MoviesAddForm addForm={this.addForm} />
         </div>
       </div>
     );
