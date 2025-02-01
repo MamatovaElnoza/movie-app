@@ -5,6 +5,7 @@ interface MovieProps {
   name: string;
   views: number;
   favourite: boolean;
+  like: boolean;
   id: any;
   onDelete: any;
   onToggleLike: any;
@@ -34,8 +35,7 @@ class MovieListItem extends Component<MovieProps, MovieState>{
   }
   
   render() {
-    const { name, views, onDelete, onToggleFavourite, onToggleLike} = this.props;
-    const {favourite, like} = this.state
+    const { name, views, onDelete, onToggleFavourite, onToggleLike, favourite, like} = this.props;
     return (
       <li className={`list-group-item d-flex justify-content-between ${favourite && 'favourite'} ${like && 'like'}`}>
           <span onClick={onToggleLike} className="list-group-item-label">{name}</span>
