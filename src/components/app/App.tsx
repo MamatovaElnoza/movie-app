@@ -5,6 +5,7 @@ import SearchPanel from '../search-panel/search-panel.tsx';
 import AppFilter from '../app-filter/app-filter.tsx';
 import MovieList from '../movie-list/movie-list.tsx';
 import MoviesAddForm from '../movies-add-form/movies-add-form.tsx';
+import { v4 as uuidv4 } from 'uuid';
 
 interface AppMovie {
   id: number;
@@ -34,8 +35,12 @@ class App extends Component<{}, AppState> {
 
   addForm = (e, item) => {
     e.preventDefault()
-    console.log(item);
-
+    this.setState(({ data }) => {
+      const newArr = [...data, {...item, id: uuidv4()}];
+      return{
+        data: newArr
+      }
+    })
   }
 
   render() {
