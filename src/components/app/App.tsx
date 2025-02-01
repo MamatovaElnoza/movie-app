@@ -35,12 +35,9 @@ class App extends Component<{}, AppState> {
 
   addForm = (e, item) => {
     e.preventDefault()
-    this.setState(({ data }) => {
-      const newArr = [...data, {...item, id: uuidv4()}];
-      return{
-        data: newArr
-      }
-    })
+    this.setState(({ data }) => ({
+      data: [...data, {...item, id: uuidv4()}]
+    }))
   }
 
   render() {
