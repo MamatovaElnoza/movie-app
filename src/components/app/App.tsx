@@ -41,6 +41,14 @@ class App extends Component<{}, AppState> {
     }))
   }  
 
+  onToggleFavourite = id => {
+    console.log(`Favourite ${id}`);
+  }
+
+  onToggleLike = id => {
+    console.log(`Like ${id}`);
+  }
+
   render() {
     const { data } = this.state
     return (
@@ -51,7 +59,7 @@ class App extends Component<{}, AppState> {
             <SearchPanel />
             <AppFilter />
           </div>
-          <MovieList data={data} onDelete={this.onDelete} />
+          <MovieList onToggleFavourite={this.onToggleFavourite} onToggleLike={this.onToggleLike} data={data} onDelete={this.onDelete} />
           <MoviesAddForm addForm={this.addForm} />
         </div>
       </div>

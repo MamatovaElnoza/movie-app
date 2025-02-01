@@ -6,7 +6,9 @@ interface MovieProps {
   views: number;
   favourite: boolean;
   id: any;
-  onDelete: any
+  onDelete: any;
+  onToggleLike: any;
+  onToggleFavourite: any;
 }
 interface MovieState {
   favourite: boolean;
@@ -32,14 +34,14 @@ class MovieListItem extends Component<MovieProps, MovieState>{
   }
   
   render() {
-    const { name, views, onDelete} = this.props;
+    const { name, views, onDelete, onToggleFavourite, onToggleLike} = this.props;
     const {favourite, like} = this.state
     return (
       <li className={`list-group-item d-flex justify-content-between ${favourite && 'favourite'} ${like && 'like'}`}>
-          <span onClick={this.onLike} className="list-group-item-label">{name}</span>
+          <span onClick={onToggleLike} className="list-group-item-label">{name}</span>
           <input type="number" className="list-group-item-input" defaultValue={views} />
           <div className="d-flex justify-content-center align-items-center">
-              <button className="btn-cookie btn-sm" type="button" onClick={this.onFavourite}>
+              <button className="btn-cookie btn-sm" type="button" onClick={onToggleFavourite}>
                   <i className="fas fa-cookie"></i>
               </button>
               <button className="btn-sm btn-trash" type="button" onClick={onDelete}>
