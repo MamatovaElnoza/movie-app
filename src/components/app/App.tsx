@@ -42,7 +42,17 @@ class App extends Component<{}, AppState> {
   }  
 
   onToggleFavourite = id => {
-    console.log(`Favourite ${id}`);
+    this.setState(({data}) => {
+      const newArr = data.map(item => {
+        if(item.id === id){
+          return{...item, favourite: !item.favourite}
+        }
+        return item
+      })
+      return{
+        data: newArr
+      }
+    })
   }
 
   onToggleLike = id => {
