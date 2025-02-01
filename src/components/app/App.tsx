@@ -8,11 +8,12 @@ import MoviesAddForm from '../movies-add-form/movies-add-form.tsx';
 import { v4 as uuidv4 } from 'uuid';
 
 interface AppMovie {
+  [x: string]: any;
   id: any;
   name: string;
   views: number;
   favourite: boolean;
-  like: boolean
+  like: boolean;
 }
 interface AppState {
   data: AppMovie[];
@@ -41,22 +42,11 @@ class App extends Component<{}, AppState> {
     }))
   }
 
-  onToggleFavourite = id => {
+  onToggleProp = (id, prop) => {
     this.setState(({ data }) => ({
       data: data.map(item => {
         if (item.id === id) {
-          return { ...item, favourite: !item.favourite }
-        }
-        return item
-      })
-    }))
-  }
-
-  onToggleLike = id => {
-    this.setState(({ data }) => ({
-      data: data.map(item => {
-        if (item.id === id) {
-          return { ...item, like: !item.like }
+          return { ...item, [prop]: !item.prop }
         }
         return item
       })
@@ -73,7 +63,7 @@ class App extends Component<{}, AppState> {
             <SearchPanel />
             <AppFilter />
           </div>
-          <MovieList onToggleFavourite={this.onToggleFavourite} onToggleLike={this.onToggleLike} data={data} onDelete={this.onDelete} />
+          <MovieList onToggleProp={this.onToggleProp} data={data} onDelete={this.onDelete} />
           <MoviesAddForm addForm={this.addForm} />
         </div>
       </div>
