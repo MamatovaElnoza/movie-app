@@ -24,7 +24,7 @@ class App extends Component<{}, AppState> {
       data: [
         { name: 'Wednesday', views: 998, favourite: false, like: false, id: 1 },
         { name: 'Leon', views: 567, favourite: false, like: false, id: 2 },
-        { name: 'Home Alone', views: 738, favourite: true, like: false, id: 3 },
+        { name: 'Home Alone', views: 738, favourite: false, like: false, id: 3 },
         { name: 'The fault in our stars', views: 893, favourite: false, like: false, id: 4 },
       ]
     }
@@ -35,28 +35,32 @@ class App extends Component<{}, AppState> {
   }
 
   addForm = (e, item) => {
-    const newItem = {name: item.name, views: item.views, id: uuidv4(), favourite: false, like: false}
+    const newItem = { name: item.name, views: item.views, id: uuidv4(), favourite: false, like: false }
     this.setState(({ data }) => ({
       data: [...data, newItem]
     }))
-  }  
+  }
 
   onToggleFavourite = id => {
-    this.setState(({data}) => {
-      const newArr = data.map(item => {
-        if(item.id === id){
-          return{...item, favourite: !item.favourite}
+    this.setState(({ data }) => ({
+      data: data.map(item => {
+        if (item.id === id) {
+          return { ...item, favourite: !item.favourite }
         }
         return item
       })
-      return{
-        data: newArr
-      }
-    })
+    }))
   }
 
   onToggleLike = id => {
-    console.log(`Like ${id}`);
+    this.setState(({ data }) => ({
+      data: data.map(item => {
+        if (item.id === id) {
+          return { ...item, like: !item.like }
+        }
+        return item
+      })
+    }))
   }
 
   render() {
