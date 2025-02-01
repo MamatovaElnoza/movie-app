@@ -8,10 +8,11 @@ import MoviesAddForm from '../movies-add-form/movies-add-form.tsx';
 import { v4 as uuidv4 } from 'uuid';
 
 interface AppMovie {
-  id: number;
+  id: any;
   name: string;
   views: number;
   favourite: boolean;
+  like: boolean
 }
 interface AppState {
   data: AppMovie[];
@@ -21,10 +22,10 @@ class App extends Component<{}, AppState> {
     super(props)
     this.state = {
       data: [
-        { name: 'Wednesday', views: 998, favourite: false, id: 1 },
-        { name: 'Leon', views: 567, favourite: false, id: 2 },
-        { name: 'Home Alone', views: 738, favourite: true, id: 3 },
-        { name: 'The fault in our stars', views: 893, favourite: false, id: 4 },
+        { name: 'Wednesday', views: 998, favourite: false, like: false, id: 1 },
+        { name: 'Leon', views: 567, favourite: false, like: false, id: 2 },
+        { name: 'Home Alone', views: 738, favourite: true, like: false, id: 3 },
+        { name: 'The fault in our stars', views: 893, favourite: false, like: false, id: 4 },
       ]
     }
   }
@@ -34,11 +35,11 @@ class App extends Component<{}, AppState> {
   }
 
   addForm = (e, item) => {
-    e.preventDefault()
+    const newItem = {name: item.name, views: item.views, id: uuidv4(), favourite: false, like: false}
     this.setState(({ data }) => ({
-      data: [...data, {...item, id: uuidv4()}]
+      data: [...data, newItem]
     }))
-  }
+  }  
 
   render() {
     const { data } = this.state
