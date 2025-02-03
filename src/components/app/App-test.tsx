@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 interface UserProps {
     firstname: string;
@@ -67,10 +67,10 @@ class User extends Component<UserProps, UserState> {
 
 const AppTest: React.FC = () => {
     return (
-        <div>
+        <Fragment>
             <User firstname='samar' lastname='bad' link='youtube.com' />
             <User firstname='omar' lastname='good' link='youtube.com' />
-        </div>
+        </Fragment>
     )
 }
 
