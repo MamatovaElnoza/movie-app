@@ -46,7 +46,7 @@ class App extends Component<{}, AppState> {
     this.setState(({ data }) => ({
       data: data.map(item => {
         if (item.id === id) {
-          return { ...item, [prop]: !item.prop }
+          return { ...item, [prop]: !item[prop] }
         }
         return item
       })
