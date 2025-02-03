@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
 import './search-panel.css'
 
-class SearchPanel extends Component {
+interface SearchPanelProps {
+  updateTermHandler: (term: string) => void;
+}
+
+interface SearchPanelState {
+  term: string;
+}
+
+class SearchPanel extends Component<SearchPanelProps, SearchPanelState> {
   constructor(props){
     super(props)
     this.state= {term: ''}
