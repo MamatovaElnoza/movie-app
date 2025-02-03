@@ -55,10 +55,12 @@ class App extends Component<{}, AppState> {
 
   render() {
     const { data } = this.state
+    const allMoviesCount = data.length
+
     return (
       <div className="app font-monospace">
         <div className="content">
-          <AppInfo />
+          <AppInfo allMoviesCount={allMoviesCount}/>
           <div className="search-panel">
             <SearchPanel />
             <AppFilter />
