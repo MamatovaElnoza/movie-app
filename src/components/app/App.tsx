@@ -28,7 +28,7 @@ class App extends Component<{}, AppState> {
         { name: 'Home Alone', views: 738, favourite: false, like: false, id: 3 },
         { name: 'The fault in our stars', views: 893, favourite: false, like: false, id: 4 },
       ],
-      term: 'o'
+      term: ''
     }
   }
 
@@ -62,6 +62,8 @@ class App extends Component<{}, AppState> {
     return arr.filter(item => item.name.toLowerCase().indexOf(term) > -1)
   }
 
+  updateTermHandler = (term) => this.setState({term})
+
   render() {
     const { data, term } = this.state
     const allMoviesCount = data.length
@@ -73,7 +75,7 @@ class App extends Component<{}, AppState> {
         <div className="content">
           <AppInfo allMoviesCount={allMoviesCount} favouriteMovieCount={favouriteMovieCount}/>
           <div className="search-panel">
-            <SearchPanel />
+            <SearchPanel updateTermHandler={this.updateTermHandler}/>
             <AppFilter />
           </div>
           <MovieList onToggleProp={this.onToggleProp} data={visibleData} onDelete={this.onDelete} />
