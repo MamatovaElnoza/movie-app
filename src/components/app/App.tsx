@@ -90,7 +90,7 @@ class App extends Component<{}, AppState> {
           <AppInfo allMoviesCount={allMoviesCount} favouriteMovieCount={favouriteMovieCount} />
           <div className="search-panel">
             <SearchPanel updateTermHandler={this.updateTermHandler} />
-            <AppFilter updateFilterHandler={this.updateFilterHandler}/>
+            <AppFilter filter={filter} updateFilterHandler={this.updateFilterHandler}/>
           </div>
           <MovieList onToggleProp={this.onToggleProp} data={visibleData} onDelete={this.onDelete} />
           <MoviesAddForm addForm={this.addForm} />
