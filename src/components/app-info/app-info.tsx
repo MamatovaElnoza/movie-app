@@ -1,5 +1,5 @@
 import React from 'react'
-import './app-info.css'
+import './app-info.scss'
 
 const AppInfo = ({allMoviesCount, favouriteMovieCount}) => {
   return (
