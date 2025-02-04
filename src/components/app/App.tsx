@@ -70,6 +70,8 @@ class App extends Component<{}, AppState> {
         return arr.filter(c => c.like)
       case 'mostViewed':
         return arr.filter(c => c.views > 800)
+        case 'all':
+          return arr
       default:
         return arr
     }
