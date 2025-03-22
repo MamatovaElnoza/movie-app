@@ -6,7 +6,7 @@ const MovieList = ({data, onDelete, onToggleProp }) => {
   return (
     <ul className="movie-list">
       {data.map((item: { name: string; views: number; favourite: boolean; like: boolean; id: any }) =>(
-        <MovieListItem name={item.name} views={item.views} favourite={item.favourite} like={item.like} id={item.id} onDelete = {() => onDelete(item.id)} onToggleProp={(e) => onToggleProp(item.id, e.currentTarget.getAttribute('data-toggle'))}
+        <MovieListItem key={item.id} name={item.name} views={item.views} favourite={item.favourite} like={item.like} id={item.id} onDelete = {() => onDelete(item.id)} onToggleProp={(e) => onToggleProp(item.id, e.currentTarget.getAttribute('data-toggle'))}
         />
       ))}
     </ul>
