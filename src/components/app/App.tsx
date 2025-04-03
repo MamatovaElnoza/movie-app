@@ -21,6 +21,13 @@ import { v4 as uuidv4 } from 'uuid';
 //   filter: string;
 // }
 
+const arr = [
+  { name: 'Wednesday', views: 998, favourite: false, like: false, id: '1' },
+  { name: 'Leon', views: 567, favourite: false, like: false, id: '2' },
+  { name: 'Home Alone', views: 738, favourite: false, like: false, id: '3' },
+  { name: 'The fault in our stars', views: 893, favourite: false, like: false, id: '4' },
+]
+
 const App = () => {
   const [data, setData] = useState(arr);
   const [term, setTerm] = useState('');
@@ -87,10 +94,3 @@ const App = () => {
 }
 
 export default App;
-
-const arr = [
-  { name: 'Wednesday', views: 998, favourite: false, like: false, id: 1 },
-  { name: 'Leon', views: 567, favourite: false, like: false, id: 2 },
-  { name: 'Home Alone', views: 738, favourite: false, like: false, id: 3 },
-  { name: 'The fault in our stars', views: 893, favourite: false, like: false, id: 4 },
-]
