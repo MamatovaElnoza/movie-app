@@ -67,8 +67,8 @@ const App = () => {
         return arr.filter(c => c.like)
       case 'mostViewed':
         return arr.filter(c => c.views > 800)
-        case 'all':
-          return arr
+      case 'all':
+        return arr
       default:
         return arr
     }
@@ -84,7 +84,7 @@ const App = () => {
         <AppInfo allMoviesCount={data.length} favouriteMovieCount={data.filter(c => c.favourite).length} />
         <div className="search-panel">
           <SearchPanel updateTermHandler={updateTermHandler} />
-          <AppFilter filter={filter} updateFilterHandler={updateFilterHandler}/>
+          <AppFilter filter={filter} updateFilterHandler={updateFilterHandler} />
         </div>
         <MovieList onToggleProp={onToggleProp} data={filterHandler(searchHandler(data, term), filter)} onDelete={onDelete} />
         <MoviesAddForm addForm={addForm} />

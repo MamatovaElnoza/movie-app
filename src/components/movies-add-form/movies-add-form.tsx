@@ -10,7 +10,7 @@ import './movies-add-form.css';
 //   views: string;
 // }
 
-const MoviesAddForm = ({addForm}) => {
+const MoviesAddForm = ({ addForm }) => {
   const [state, setState] = useState({ name: '', views: '' })
 
   const changeHandlerInput = (e) => {
@@ -19,9 +19,10 @@ const MoviesAddForm = ({addForm}) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const data = {name: state.name, viewers: state.views}
+    if (state.name === '' || state.views === '') return
+    const data = { name: state.name, views: state.views }
     addForm(data)
-    setState({name: '', views: ''})
+    setState({ name: '', views: '' })
   }
 
   return (
