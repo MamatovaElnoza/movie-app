@@ -21,17 +21,12 @@ import { v4 as uuidv4 } from 'uuid';
 //   filter: string;
 // }
 
-const arr = [
-  { name: 'Wednesday', views: 998, favourite: false, like: false, id: '1' },
-  { name: 'Leon', views: 567, favourite: false, like: false, id: '2' },
-  { name: 'Home Alone', views: 738, favourite: false, like: false, id: '3' },
-  { name: 'The fault in our stars', views: 893, favourite: false, like: false, id: '4' },
-]
 
 const App = () => {
-  const [data, setData] = useState(arr);
+  const [data, setData] = useState([]);
   const [term, setTerm] = useState('');
   const [filter, setFilter] = useState('all');
+  const [loading, setLoading] = useState(false)
 
   const onDelete = (id) => {
     const newArr = data.filter(c => c.id !== id)
@@ -79,14 +74,15 @@ const App = () => {
   const updateFilterHandler = filter => setFilter(filter)
 
   useEffect(() => {
+    setLoading(true)
     fetch('https://jsonplaceholder.typicode.com/todos?_start=0&_limit=5')
       .then(response => response.json())
       .then(json => {
         const newArr = json.map(item => ({ name: item.title, id: item.id, views: item.id * 10, favourite: false, like: false, }))
         setData(newArr)
       })
-      .catch(err => console.log(err)
-      )
+      .catch(err => console.log(err))
+      .finally(() => setLoading(false))
   }, [])
 
   return (
@@ -97,6 +93,7 @@ const App = () => {
           <SearchPanel updateTermHandler={updateTermHandler} />
           <AppFilter filter={filter} updateFilterHandler={updateFilterHandler} />
         </div>
+        {loading && 'Loading...'}
         <MovieList onToggleProp={onToggleProp} data={filterHandler(searchHandler(data, term), filter)} onDelete={onDelete} />
         <MoviesAddForm addForm={addForm} />
       </div>
