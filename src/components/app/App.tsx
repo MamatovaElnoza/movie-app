@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css'
 import AppInfo from '../app-info/app-info.tsx';
 import SearchPanel from '../search-panel/search-panel.tsx';
@@ -77,6 +77,17 @@ const App = () => {
   const updateTermHandler = term => setTerm(term)
 
   const updateFilterHandler = filter => setFilter(filter)
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos?_start=0&_limit=5')
+      .then(response => response.json())
+      .then(json => {
+        const newArr = json.map(item => ({ name: item.title, id: item.id, views: item.id * 10, favourite: false, like: false, }))
+        setData(newArr)
+      })
+      .catch(err => console.log(err)
+      )
+  }, [])
 
   return (
     <div className="app font-monospace">
